@@ -108,18 +108,16 @@ function setupCookies() {
   const saved = safeStorageGet(CONSENT_KEY);
   const analyticsSaved = safeStorageGet(ANALYTICS_CONSENT_KEY) === 'true';
 
-  const showBanner = () => banner?.classList.add('show');
+  const showBanner = () => {
+    banner?.classList.add('show');
+    banner?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  };
   const hideBanner = () => {
     preferencesBox?.setAttribute('hidden', '');
     banner?.classList.remove('show');
   };
 
   if (analyticsCheckbox) analyticsCheckbox.checked = analyticsSaved;
-  const openSettingsBtn = document.querySelector('#open-cookie-settings');
-  const saved = localStorage.getItem(CONSENT_KEY);
-
-  const showBanner = () => banner?.classList.add('show');
-  const hideBanner = () => banner?.classList.remove('show');
 
   if (!saved) showBanner();
 
@@ -148,6 +146,10 @@ function setupCookies() {
     hideBanner();
   });
 
+  openSettingsBtn?.addEventListener('click', () => {
+    showBanner();
+    preferencesBox?.removeAttribute('hidden');
+  });
   openSettingsBtn?.addEventListener('click', showBanner);
 }
 

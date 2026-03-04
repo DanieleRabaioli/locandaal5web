@@ -24,7 +24,10 @@ img { display: block; max-width: 100%; }
 a { color: inherit; }
 
 .container { width: min(100% - 2rem, var(--max-width)); margin-inline: auto; }
+
 .section { padding: 5rem 0; }
+.section,
+section[id] { scroll-margin-top: 90px; }
 .section-dark {
   background: linear-gradient(180deg, var(--bg-soft) 0%, #2a1e1e 100%);
 }
@@ -72,6 +75,24 @@ a { color: inherit; }
 .nav-menu a:focus-visible { background: rgba(143,29,29,.35); }
 
 .hero { padding-top: 6rem; padding-bottom: 6rem; }
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1.5fr minmax(220px, 320px);
+  gap: 1rem;
+  align-items: center;
+}
+.logo-placeholder {
+  margin: 0;
+  min-height: 220px;
+  border: 2px dashed rgba(203,170,92,.65);
+  border-radius: 1rem;
+  background: linear-gradient(160deg, #2a1717 0%, #1f1f1f 100%);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: var(--accent);
+  font-weight: 700;
+}
 .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .18em; font-weight: 700; }
 .hero h1 { font-size: clamp(2.1rem, 6vw, 3.7rem); margin: .2rem 0 1rem; line-height: 1.1; }
 .hero p { max-width: 68ch; }
@@ -243,6 +264,10 @@ a { color: inherit; }
   gap: 1rem;
 }
 
+#contatti {
+  min-height: 320px;
+}
+
 .contact-form {
   display: grid;
   gap: .6rem;
@@ -272,6 +297,7 @@ a { color: inherit; }
   .reviews-grid { grid-template-columns: 1fr 1fr; }
   .cocktail-layout { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
+  .hero-layout { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 720px) {
