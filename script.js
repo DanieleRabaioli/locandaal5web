@@ -91,6 +91,8 @@ function setupMenu() {
 function saveConsent(value) {
   safeStorageSet(CONSENT_KEY, value);
   safeStorageSet(CONSENT_TS_KEY, new Date().toISOString());
+  localStorage.setItem(CONSENT_KEY, value);
+  localStorage.setItem(CONSENT_TS_KEY, new Date().toISOString());
   window.dispatchEvent(new CustomEvent('consent-changed', { detail: value }));
 }
 
@@ -113,6 +115,11 @@ function setupCookies() {
   };
 
   if (analyticsCheckbox) analyticsCheckbox.checked = analyticsSaved;
+  const openSettingsBtn = document.querySelector('#open-cookie-settings');
+  const saved = localStorage.getItem(CONSENT_KEY);
+
+  const showBanner = () => banner?.classList.add('show');
+  const hideBanner = () => banner?.classList.remove('show');
 
   if (!saved) showBanner();
 
