@@ -275,6 +275,9 @@ section[id] { scroll-margin-top: 90px; }
 
 .contact-grid {
   margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
 }
 
 #contatti {
