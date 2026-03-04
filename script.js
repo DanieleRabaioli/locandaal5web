@@ -91,8 +91,6 @@ function setupMenu() {
 function saveConsent(value) {
   safeStorageSet(CONSENT_KEY, value);
   safeStorageSet(CONSENT_TS_KEY, new Date().toISOString());
-  localStorage.setItem(CONSENT_KEY, value);
-  localStorage.setItem(CONSENT_TS_KEY, new Date().toISOString());
   window.dispatchEvent(new CustomEvent('consent-changed', { detail: value }));
 }
 
@@ -150,7 +148,6 @@ function setupCookies() {
     showBanner();
     preferencesBox?.removeAttribute('hidden');
   });
-  openSettingsBtn?.addEventListener('click', showBanner);
 }
 
 function starsFromRating(rating = 0) {
