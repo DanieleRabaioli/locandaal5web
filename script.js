@@ -168,6 +168,8 @@ async function loadReviews() {
   const status = document.querySelector('#reviews-status');
   const list = document.querySelector('#reviews-list');
 
+  if (!status || !list) return;
+
   try {
     const response = await fetch('/api/reviews', { headers: { Accept: 'application/json' } });
     if (!response.ok) throw new Error('Unable to load reviews');
