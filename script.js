@@ -150,63 +150,6 @@ function setupCookies() {
   });
 }
 
-function starsFromRating(rating = 0) {
-  const full = Math.max(0, Math.round(Number(rating)));
-  return '★'.repeat(full).padEnd(5, '☆');
-}
-
-function escapeHTML(value = '') {
-  return String(value)
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#39;');
-}
-
-async function loadReviews() {
-  const status = document.querySelector('#reviews-status');
-  const list = document.querySelector('#reviews-list');
-
-  if (!status || !list) return;
-
-  try {
-    const response = await fetch('/api/reviews', { headers: { Accept: 'application/json' } });
-    if (!response.ok) throw new Error('Unable to load reviews');
-    const data = await response.json();
-    const reviews = Array.isArray(data.reviews) ? data.reviews : [];
-
-    if (reviews.length === 0) {
-      status.textContent = 'Nessuna recensione disponibile al momento.';
-      return;
-    }
-
-    status.textContent = '';
-    list.innerHTML = reviews
-      .slice(0, 6)
-      .map((review) => {
-        const author = escapeHTML(review.author_name || 'Ospite');
-        const text = escapeHTML(review.text || 'Recensione disponibile su Google.');
-        const relDate = escapeHTML(review.relative_time_description || '');
-        const rating = Number(review.rating) || 0;
-
-        return `<article class="review-card">
-          <div class="review-head">
-            <strong>${author}</strong>
-            <span class="stars" aria-label="Valutazione ${rating} su 5">${starsFromRating(rating)}</span>
-          </div>
-          <p>${text}</p>
-          <small>${relDate}</small>
-        </article>`;
-      })
-      .join('');
-  } catch {
-    status.innerHTML =
-      'Impossibile caricare le recensioni in questo momento. <a href="https://www.google.com/search?q=Locanda+Al+5+Lainate" target="_blank" rel="noopener noreferrer">Leggi su Google</a>.';
-  }
-}
-
 setupSliders();
 setupMenu();
 setupCookies();
-loadReviews();
