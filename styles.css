@@ -387,3 +387,29 @@ section[id] { scroll-margin-top: 90px; }
   .reviews-grid { grid-template-columns: 1fr; }
   .cookie-banner { flex-direction: column; align-items: flex-start; }
 }
+
+
+main table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.5rem;
+  background: rgba(255,255,255,.02);
+}
+
+main th,
+main td {
+  border: 1px solid rgba(203,170,92,.35);
+  padding: .55rem .6rem;
+  vertical-align: top;
+  text-align: left;
+}
+
+main h3,
+main h4 {
+  margin-bottom: .4rem;
+}
+
+main p,
+main li {
+  max-width: 95ch;
+}
