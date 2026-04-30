@@ -77,21 +77,29 @@ section[id] { scroll-margin-top: 90px; }
 .hero { padding-top: 6rem; padding-bottom: 6rem; }
 .hero-layout {
   display: grid;
-  grid-template-columns: 1.5fr minmax(220px, 320px);
+  grid-template-columns: minmax(300px, 460px) 1.4fr;
   gap: 1rem;
   align-items: center;
 }
+
+.logo-placeholder { order: 1; }
+.hero-copy { order: 2; }
 .logo-placeholder {
   margin: 0;
-  min-height: 220px;
+  padding: 1rem;
+  min-height: 360px;
   border: 2px dashed rgba(203,170,92,.65);
   border-radius: 1rem;
   background: linear-gradient(160deg, #2a1717 0%, #1f1f1f 100%);
   display: grid;
   place-items: center;
   text-align: center;
-  color: var(--accent);
-  font-weight: 700;
+}
+
+.logo-placeholder img {
+  width: min(100%, 420px);
+  height: auto;
+  object-fit: contain;
 }
 .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .18em; font-weight: 700; }
 .hero h1 { font-size: clamp(2.1rem, 6vw, 3.7rem); margin: .2rem 0 1rem; line-height: 1.1; }
