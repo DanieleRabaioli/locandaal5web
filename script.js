@@ -11,10 +11,7 @@ const sliderImages = {
   cocktail: [
     '/img/BOULEVARDIER-NOCCIOLE.jpg',
     '/img/MOLINDO.jpeg',
-    '/img/REMBAMBIT.jpeg',
-    '/img/SPICY-MARGARITA.jpeg',
-    '/img/ST-GERMAIN-SPRITZ.jpg',
-    '/img/TIKIAMERO.jpg'
+    '/img/ST-GERMAIN-SPRITZ.jpg'
   ]
 };
 
