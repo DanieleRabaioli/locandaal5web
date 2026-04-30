@@ -9,9 +9,12 @@ const sliderImages = {
     '/img/4.jpeg'
   ],
   cocktail: [
-    'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1400&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=1400&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1481391032119-d89fee407e44?q=80&w=1400&auto=format&fit=crop'
+    '/img/BOULEVARDIER-NOCCIOLE.jpg',
+    '/img/MOLINDO.jpeg',
+    '/img/REMBAMBIT.jpeg',
+    '/img/SPICY-MARGARITA.jpeg',
+    '/img/ST-GERMAIN-SPRITZ.jpg',
+    '/img/TIKIAMERO.jpg'
   ]
 };
 
