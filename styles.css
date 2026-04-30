@@ -77,14 +77,13 @@ section[id] { scroll-margin-top: 90px; }
 .hero { padding-top: 6rem; padding-bottom: 6rem; }
 .hero-layout {
   display: grid;
-  grid-template-columns: minmax(320px, 500px) 1.3fr;
-  grid-template-areas: "logo copy";
+  grid-template-columns: minmax(300px, 460px) 1.4fr;
   gap: 1rem;
   align-items: center;
 }
 
-.logo-placeholder { grid-area: logo; order: 1; }
-.hero-copy { grid-area: copy; order: 2; }
+.logo-placeholder { order: 1; }
+.hero-copy { order: 2; }
 .logo-placeholder {
   margin: 0;
   padding: 1rem;
